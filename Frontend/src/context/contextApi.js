@@ -4,15 +4,10 @@ import axios from "axios";
 export const Context = createContext();
 
 export const AppContext = (props) => {
-  
   const [mobileMenu, setMobileMenu] = useState(false);
   const [isToggled, setIsToggled] = useState(false);
   const [message, setMessage] = useState("");
   const [user, setUser] = useState(null);
- 
-
-
-
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -30,18 +25,19 @@ export const AppContext = (props) => {
       }
     };
 
-    fetchUserProfile();
+    if (localStorage.getItem('accessToken')) {
+      fetchUserProfile();
+    }
   }, []);
+
   const toggleMobileMenu = () => {
     console.log("Toggling mobile menu"); // Debugging statement
     setMobileMenu(prevState => !prevState);
-};
-
+  };
 
   return (
     <Context.Provider
       value={{
-        
         mobileMenu,
         setMobileMenu,
         isToggled,
@@ -50,7 +46,6 @@ export const AppContext = (props) => {
         setUser,
         message,
         toggleMobileMenu,
-       
       }}
     >
       {props.children}

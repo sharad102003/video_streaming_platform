@@ -15,8 +15,13 @@ const Logout = () => {
       // Clear tokens from localStorage or wherever they are stored
       localStorage.removeItem('accessToken');
       localStorage.removeItem('refreshToken');
+
+      // Reload the page after logout
+     
+
       // Navigate to the login page or another appropriate page after logout
       navigate('/login');
+      window.location.reload();
     } catch (error) {
       console.error('Logout failed:', error);
       // Handle logout failure, if needed

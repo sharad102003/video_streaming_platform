@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import ProfilePage from './Profile';
-
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -11,6 +9,12 @@ const Login = () => {
   const [message, setMessage] = useState('');
   const [loggedInUser, setLoggedInUser] = useState(null); // State to store logged-in user data
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('accessToken')) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,10 +34,9 @@ const Login = () => {
 
       // Set the logged-in user data
       setLoggedInUser(user);
-      navigate("/");
 
-      // Optionally, navigate to a different page after login
-      // navigate('/ProfilePage');
+      // Reload the page after login
+      window.location.reload();
     } catch (error) {
       setMessage('Login failed');
     }
@@ -92,12 +95,9 @@ const Login = () => {
         <Link to="/Signup" className="text-indigo-500 hover:underline">
           Sign Up
         </Link>
-        
       </p>
     </div>
   );
 };
 
 export default Login;
-
-
