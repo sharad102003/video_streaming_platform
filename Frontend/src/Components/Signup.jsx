@@ -1,8 +1,7 @@
-import React, { useState ,useEffect, useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { Context } from "../context/contextApi"; 
+import { Link, useNavigate } from 'react-router-dom';
+import { Context } from "../context/contextApi";
 
 const Signup = () => {
   const { user } = useContext(Context);
@@ -17,9 +16,9 @@ const Signup = () => {
 
   useEffect(() => {
     if (user) {
-     navigate("/profile/${userId}")
+      navigate(`/profile/${user.userId}`);
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,6 +37,7 @@ const Signup = () => {
         },
       });
       setMessage(response.data.message);
+      navigate("/login");
     } catch (error) {
       setMessage('Sign up failed');
     }
@@ -48,7 +48,7 @@ const Signup = () => {
       <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-white">Full Name</label>
+          <label className="block text-sm font-medium text-gray-700">Full Name</label>
           <input
             type="text"
             value={fullName}
@@ -58,7 +58,7 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-white">Avatar</label>
+          <label className="block text-sm font-medium text-gray-700">Avatar</label>
           <input
             type="file"
             onChange={(e) => setAvatar(e.target.files[0])}
@@ -67,7 +67,7 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-white">Cover Image</label>
+          <label className="block text-sm font-medium text-gray-700">Cover Image</label>
           <input
             type="file"
             onChange={(e) => setCoverImage(e.target.files[0])}
@@ -76,7 +76,7 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-white">Email</label>
+          <label className="block text-sm font-medium text-gray-700">Email</label>
           <input
             type="email"
             value={email}
@@ -86,7 +86,7 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-white">Password</label>
+          <label className="block text-sm font-medium text-gray-700">Password</label>
           <input
             type="password"
             value={password}
@@ -96,7 +96,7 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-white">Username</label>
+          <label className="block text-sm font-medium text-gray-700">Username</label>
           <input
             type="text"
             value={username}
@@ -105,7 +105,7 @@ const Signup = () => {
             required
           />
         </div>
-        <button onClick={() => navigate('/')}
+        <button
           type="submit"
           className="w-full bg-indigo-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
@@ -113,9 +113,9 @@ const Signup = () => {
         </button>
       </form>
       {message && <p className="mt-4 text-center text-red-500">{message}</p>}
-      <p className="mt-4 text-center text-white">
+      <p className="mt-4 text-center text-gray-700">
         Already have an account?{' '}
-        <Link to="/Login" className="text-indigo-500 hover:underline">
+        <Link to="/login" className="text-indigo-500 hover:underline">
           Login
         </Link>
       </p>
@@ -124,4 +124,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

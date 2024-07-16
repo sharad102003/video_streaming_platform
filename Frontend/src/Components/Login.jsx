@@ -10,11 +10,7 @@ const Login = () => {
   const [loggedInUser, setLoggedInUser] = useState(null); // State to store logged-in user data
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (localStorage.getItem('accessToken')) {
-      navigate('/');
-    }
-  }, [navigate]);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,9 +30,10 @@ const Login = () => {
 
       // Set the logged-in user data
       setLoggedInUser(user);
-
+      navigate("/");
       // Reload the page after login
       window.location.reload();
+      
     } catch (error) {
       setMessage('Login failed');
     }
@@ -92,7 +89,7 @@ const Login = () => {
       )}
       <p className="mt-4 text-center text-white">
         Don't have an account?{' '}
-        <Link to="/Signup" className="text-indigo-500 hover:underline">
+        <Link to="/signup" className="text-indigo-500 hover:underline">
           Sign Up
         </Link>
       </p>
