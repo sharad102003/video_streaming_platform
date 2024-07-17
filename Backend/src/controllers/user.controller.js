@@ -144,7 +144,8 @@ const loginUser = asyncHandler(async (req, res) =>{
 
     const options = {
         httpOnly: true,
-        secure: true, // Should be true if using HTTPS
+        secure: true,
+        sameSite: 'None',// Should be true if using HTTPS
         // Other options like maxAge, domain, etc., as needed
       };
     
