@@ -12,7 +12,7 @@ export const AppContext = (props) => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:7000/api/v1/users/profile', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/v1/users/profile`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
           },
