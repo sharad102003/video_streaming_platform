@@ -54,7 +54,7 @@ router.route("/cover-image").put(verifyJWT, upload.single("coverImage"), updateU
 
 router.route("/c/:username").get(verifyJWT, getUserChannelProfile)
 
-router.route("/history").get( verifyJWT, getWatchHistory);
+router.route("/history/:userId").get( verifyJWT, getWatchHistory);
 
 // Route to add a video to the user's watch history
 router.route("/history").post( verifyJWT, addToWatchHistory);
