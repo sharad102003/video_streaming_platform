@@ -11,7 +11,7 @@ const History = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/users/history`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/users/history/${user._id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`
           },
