@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: true,
+  origin: "https://youtube-clone-liard-omega.vercel.app", // Replace with your frontend URL
   credentials: true
 }));
 app.use(express.json({ limit: "16kb" }));
