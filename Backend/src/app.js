@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: true, 
+  origin: "https://youtube-clone-frontend-tau.vercel.app", 
   credentials: true
 }));
 app.use(express.json({ limit: "16kb" }));
