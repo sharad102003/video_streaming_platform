@@ -5,7 +5,8 @@ import {Video} from "../models/video.model.js"
 // Controller to get the user's watch history
  const getWatchHistory = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id)
+    const {userId} = req.params;
+    const user = await User.findById(userId)
     .populate({
       path: 'watchHistory',
       populate: { path: 'owner' }
