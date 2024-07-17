@@ -146,7 +146,6 @@ const loginUser = asyncHandler(async (req, res) =>{
         httpOnly: true,
         secure: true, // Should be true if using HTTPS
         // Other options like maxAge, domain, etc., as needed
-        secure: process.env.NODE_ENV === 'production'
       };
     
       res
