@@ -27,7 +27,7 @@ const Feed = () => {
         } else {
           console.error('Error setting up the request:', error.message);
         }
-        setMessage('Failed to fetch videos');
+        setMessage('Please login in the top right-corner');
       }
     };
 
@@ -57,7 +57,7 @@ const Feed = () => {
             </Link>
           ))
         ) : (
-          <p className="text-center col-span-full text-gray-400">No videos found</p>
+          <p className="text-center col-span-full text-gray-400">Login required </p>
         )}
       </div>
     </div>
