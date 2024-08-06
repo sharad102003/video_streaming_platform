@@ -9,6 +9,7 @@ import ytLogoMobile from "../images/yt-logo-mobile.png";
 import profile from "../images/profile.png";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
+import Inbox from "./Inbox";
 
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
