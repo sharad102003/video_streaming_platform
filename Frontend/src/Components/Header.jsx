@@ -59,8 +59,8 @@ const Header = () => {
                     <Link to="/Upload" className="flex items-center justify-center h-10 w-10 rounded-full hover:bg-[#303030]/[0.6]">
                         <RiVideoAddLine className="text-white text-xl cursor-pointer" />
                     </Link>
-                    <div className="flex items-center justify-center ml-2 h-10 w-10 rounded-full hover:bg-[#303030]/[0.6]">
-                        <FiBell className="text-white text-xl cursor-pointer" />
+                    <div px-10>
+                    <Inbox/>
                     </div>
                 </div>
                 <Link to={user ? `/profile/${user._id}` : "/Signup"} className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
