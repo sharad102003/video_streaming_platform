@@ -57,7 +57,7 @@ const Feed = () => {
             </Link>
           ))
         ) : (
-          <p className="text-center col-span-full text-gray-400">Login required </p>
+          <p className="text-center col-span-full text-gray-400">Fetching Videos please wait </p>
         )}
       </div>
     </div>
